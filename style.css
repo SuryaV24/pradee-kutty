@@ -1,0 +1,150 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+
+    background: linear-gradient(
+        -45deg,
+        #16001f,
+        #57004f,
+        #a41365,
+        #240046
+    );
+
+    background-size: 400% 400%;
+    animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.background-glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    background: #ff1493;
+    filter: blur(150px);
+    opacity: 0.5;
+    border-radius: 50%;
+    animation: glow 4s infinite alternate;
+}
+
+@keyframes glow {
+    from { transform: scale(0.8); }
+    to { transform: scale(1.5); }
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 700px;
+    padding: 55px 30px;
+    text-align: center;
+
+    background: rgba(255,255,255,0.09);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+
+    box-shadow:
+        0 0 30px #ff1493,
+        0 0 70px rgba(255,20,147,0.4);
+
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.heart {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: beat 1.3s infinite;
+    filter: drop-shadow(0 0 20px #ff69b4);
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+h1 {
+    color: white;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
+    text-shadow: 0 0 15px #ff1493, 0 0 30px #ff1493;
+    margin-bottom: 25px;
+}
+
+p {
+    color: #ffe6f2;
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 16px 35px;
+    border: none;
+    border-radius: 50px;
+
+    background: linear-gradient(45deg, #ff1493, #c026d3);
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 20px #ff1493;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px #ff69b4;
+}
+
+@media(max-width: 500px) {
+    .container {
+        padding: 40px 20px;
+    }
+
+    .heart {
+        font-size: 65px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}

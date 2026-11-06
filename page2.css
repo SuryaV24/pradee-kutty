@@ -1,0 +1,266 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    font-family: 'Poppins', sans-serif;
+
+    background: linear-gradient(
+        -45deg,
+        #16001f,
+        #57004f,
+        #a41365,
+        #240046
+    );
+
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Background glow */
+
+.background-glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    top: 20%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #ff1493;
+    filter: blur(150px);
+    opacity: 0.4;
+    border-radius: 50%;
+
+    animation: glow 4s infinite alternate;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes glow {
+    from { transform: translateX(-50%) scale(0.8); }
+    to { transform: translateX(-50%) scale(1.5); }
+}
+
+/* Main birthday card */
+
+.welcome-card {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 850px;
+
+    margin: 80px auto;
+    padding: 55px 35px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.09);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 35px;
+
+    box-shadow:
+        0 0 30px #ff1493,
+        0 0 70px rgba(255,20,147,0.4),
+        inset 0 0 20px rgba(255,255,255,0.08);
+
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Top label */
+
+.top-label {
+    color: #ffd6ef;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+/* Heart */
+
+.big-heart {
+    font-size: 85px;
+    margin-bottom: 20px;
+
+    animation: heartbeat 1.2s infinite;
+    filter: drop-shadow(0 0 20px #ff69b4);
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Heading */
+
+.welcome-card h1 {
+    color: white;
+    font-size: clamp(27px, 5vw, 55px);
+    font-weight: 800;
+    line-height: 1.4;
+    margin: 20px 0;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #ff1493,
+        0 0 50px #ff1493;
+}
+
+/* Sparkle */
+
+.sparkle {
+    color: #ffd6eb;
+    font-size: 22px;
+    margin: 25px 0;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px #ff69b4;
+}
+
+/* Birthday message */
+
+.birthday-message {
+    color: #fff0f8;
+    font-size: 19px;
+    line-height: 2.1;
+    font-weight: 500;
+    margin: 25px 0;
+    text-shadow: 0 0 12px #ff69b4;
+}
+
+/* Cute line */
+
+.cute-line {
+    color: #ffc4e5;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+
+/* Bottom hearts */
+
+.bottom-hearts {
+    font-size: 30px;
+    margin-top: 30px;
+    animation: heartbeat 2s infinite;
+}
+
+/* Footer */
+
+.forever-text {
+    color: #ffd6ef;
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-top: 25px;
+}
+
+/* Floating hearts */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    opacity: 0;
+
+    animation: floatUp linear infinite;
+
+    filter: drop-shadow(0 0 8px #ff69b4);
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% { opacity: 0.9; }
+
+    85% { opacity: 0.8; }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile responsive */
+
+@media(max-width: 500px) {
+
+    .welcome-card {
+        width: 92%;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        padding: 45px 20px;
+    }
+
+    .big-heart {
+        font-size: 70px;
+    }
+
+    .top-label {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .welcome-card h1 {
+        font-size: 29px;
+    }
+
+    .birthday-message {
+        font-size: 15px;
+    }
+
+    .cute-line {
+        font-size: 13px;
+    }
+}
